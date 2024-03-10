@@ -21,7 +21,7 @@ void	initial_args(int ac, char **av, t_push **stack_a)
 	while (++i < ac)
 	{
 		if (!*av[i] || spaces_tabs(av[i]))
-			(ft_pushclear(stack_a), ft_error());
+			ft_error();
 		else
 		{
 			rslt = ft_split(av[i], ' ');
@@ -30,7 +30,7 @@ void	initial_args(int ac, char **av, t_push **stack_a)
 				j = -1;
 				while (rslt[++j])
 				{
-					num = ft_atoicheck(rslt[j]);
+					num = ft_atoip(rslt[j]);
 					if (num == INT_MAX || num == INT_MIN)
 						(free_split(rslt), ft_error());
 					ft_createnode(num, stack_a);
@@ -65,7 +65,7 @@ int	main(int ac, char **av)
 		while (s_b)
 			move_max_up(&s_a, &s_b);
 	}
-	//display_stack(s_a);
+	display_stack(s_b);
 	ft_pushclear(&s_a);
 	return (0);
 }

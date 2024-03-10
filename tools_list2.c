@@ -58,13 +58,13 @@ int	find_interval(t_push **a)
 	int	interval;
 
 	interval = 0;
-	if (stack_size(*a) >= 6 && stack_size(*a) <= 16)
-		interval = 3;
+	if (stack_size(*a) >= 6 && stack_size(*a) <= 20)
+		interval = 5;
 	else if (stack_size(*a) <= 100)
 		interval = 13;
 	else if (stack_size(*a) <= 500)
 		interval = 35;
 	else
-		interval = 45;
+		interval = 50;
 	return (interval);
 }
