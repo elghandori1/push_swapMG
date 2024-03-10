@@ -67,5 +67,6 @@ void			algo_sort(t_push **a, t_push **b, int interval, int size);
 int				stack_biggest(t_push **a);
 void			move_max_up(t_push **a, t_push **b);
 void			ft_putnbr(int nbr);
+void			initial_args(int ac, char **av, t_push **stack_a);
 
 #endif

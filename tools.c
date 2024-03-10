@@ -62,7 +62,10 @@ int	checkparams(char **params)
 		while (params[i][j])
 		{
 			if (!ft_isdigit(params[i][j]))
+			{
+				free_split(params);
 				ft_error();
+			}
 			j++;
 		}
 		i++;
@@ -89,9 +92,9 @@ int	ft_atoicheck(const char *str)
 	{
 		rslt = (rslt * 10 + *str) - '0';
 		if (sign == 1 && (rslt > INT_MAX))
-			ft_error();
+			return (INT_MAX);
 		else if (sign == -1 && (-rslt < INT_MIN))
-			ft_error();
+			return (INT_MIN);
 		str++;
 	}
 	return (rslt * sign);

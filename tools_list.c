@@ -45,20 +45,6 @@ void	ft_pushadd_back(t_push **lst, t_push *new)
 	}
 }
 
-void	ft_pushclear(t_push **lst)
-{
-	t_push	*next;
-
-	if (lst == NULL)
-		return ;
-	while (*lst)
-	{
-		next = (*lst)->next;
-		free(*lst);
-		*lst = next;
-	}
-}
-
 int	stack_size(t_push *head)
 {
 	int	i;
