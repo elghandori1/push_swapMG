@@ -15,13 +15,11 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	taille;
-	size_t	i;
 	char	*str;
 
 	if (!s)
 		return (NULL);
 	taille = ft_strlen(s);
-	i = 0;
 	if ((*s == '\0') || (start >= taille))
 		return (ft_calloc(1, 1));
 	else if (len > (taille - start))
