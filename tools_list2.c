@@ -28,16 +28,17 @@ int	ft_pushfind(t_push *stack, int num)
 
 void	ft_pushclear(t_push **lst)
 {
+	t_push	*current;
 	t_push	*next;
 
-	if (lst == NULL)
-		return ;
-	while (*lst)
+	current = *lst;
+	while (current != NULL)
 	{
-		next = (*lst)->next;
-		free(*lst);
-		*lst = next;
+		next = current->next;
+		free(current);
+		current = next;
 	}
+	*lst = NULL;
 }
 
 void	ft_createnode(int num, t_push **stack_a)

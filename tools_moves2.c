@@ -29,18 +29,18 @@ int	max_to_min(t_push **a)
 	return (0);
 }
 
-int	stack_biggest(t_push **b)
+int	big_element(t_push **b)
 {
-	t_push	*tmp;
+	t_push	*current;
 	int		biggest;
 
-	tmp = *b;
-	biggest = tmp->data;
-	while (tmp)
+	current = *b;
+	biggest = current->data;
+	while (current)
 	{
-		if (tmp->data > biggest)
-			biggest = tmp->data;
-		tmp = tmp->next;
+		if (current->data > biggest)
+			biggest = current->data;
+		current = current->next;
 	}
 	return (biggest);
 }
@@ -71,13 +71,13 @@ void	move_max_up(t_push **a, t_push **b)
 	max_e = 0;
 	while (1)
 	{
-		max_e = find_index (b, stack_biggest(b));
+		max_e = find_index(b, big_element(b));
 		if (max_e == 0)
 			break ;
 		else if (max_e <= size / 2)
-			ft_rb(b);
+			ft_rb(b, 0);
 		else if (max_e > size / 2)
-			ft_rrb(b);
+			ft_rrb(b, 0);
 	}
-	ft_pa(a, b);
+	ft_pa(a, b, 0);
 }
