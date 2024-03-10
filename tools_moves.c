@@ -69,18 +69,18 @@ void	algo_sort(t_push **a, t_push **b, int interval, int size)
 		if (interval + i >= size)
 			interval = size - i - 1;
 		if ((*a)->data <= s_arr[i])
-			(ft_pb(a, b), ft_rb(b), i++);
+			(ft_pb(a, b, 0), ft_rb(b, 0), i++);
 		else if ((*a)->data > s_arr[i] && (*a)->data <= s_arr[i + interval])
 		{
-			ft_pb(a, b);
+			ft_pb(a, b, 0);
 			if (stack_size(*b) >= 2 && (*b)->data < (*b)->next->data)
-				ft_sb(b);
+				ft_sb(b, 0);
 			i++;
 		}
 		else if (max_to_min(a) == 0)
-			ft_rra(a);
+			ft_rra(a, 0);
 		else
-			ft_ra(a);
+			ft_ra(a, 0);
 	}
 	free(s_arr);
 }

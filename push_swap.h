@@ -15,8 +15,8 @@
 
 # include "libft/libft.h"
 # include <ctype.h>
+# include <limits.h>
 # include <stdint.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
@@ -43,18 +43,18 @@ int				ft_pushfind(t_push *stack, int num);
 t_push			*small_elm(t_push **a);
 void			ft_createnode(int num, t_push **stack_a);
 int				ft_pushfind(t_push *stack, int num);
-void			ft_sa(t_push **stack_a);
+void			ft_sa(t_push **stack_a, int flag);
 void			display_stack(t_push *stack);
-void			ft_sb(t_push **stack_b);
-void			ft_ss(t_push **stack_a, t_push **stack_b);
-void			ft_pa(t_push **stack_a, t_push **stack_b);
-void			ft_pb(t_push **stack_a, t_push **stack_b);
-void			ft_ra(t_push **stack_a);
-void			ft_rb(t_push **stack_b);
-void			ft_rr(t_push **stack_a, t_push **stack_b);
-void			ft_rra(t_push **stack_a);
-void			ft_rrb(t_push **stack_b);
-void			ft_rrr(t_push **stack_a, t_push **stack_b);
+void			ft_sb(t_push **stack_b, int flag);
+void			ft_ss(t_push **stack_a, t_push **stack_b, int flag);
+void			ft_pa(t_push **stack_a, t_push **stack_b, int flag);
+void			ft_pb(t_push **stack_a, t_push **stack_b, int flag);
+void			ft_ra(t_push **stack_a, int flag);
+void			ft_rb(t_push **stack_b, int flag);
+void			ft_rr(t_push **stack_a, t_push **stack_b, int flag);
+void			ft_rra(t_push **stack_a, int flag);
+void			ft_rrb(t_push **stack_b, int flag);
+void			ft_rrr(t_push **stack_a, t_push **stack_b, int flag);
 void			sort_three(t_push **stack_a);
 void			sort_four(t_push **a, t_push **b);
 void			sort_five(t_push **a, t_push **b);
@@ -63,9 +63,8 @@ void			sort_int_array(int *tab, int size);
 int				*sorted_stack_array(t_push **head);
 int				max_to_min(t_push **a);
 void			algo_sort(t_push **a, t_push **b, int interval, int size);
-int				stack_biggest(t_push **a);
+int				big_element(t_push **a);
 void			move_max_up(t_push **a, t_push **b);
 void			ft_putnbr(int nbr);
-void			initial_args(int ac, char **av, t_push **stack_a);
 
 #endif
