@@ -31,6 +31,7 @@ void	free_split(char **rslt)
 		i++;
 	}
 	free(rslt);
+	rslt = NULL;
 }
 
 int	spaces_tabs(char *str)
@@ -73,7 +74,7 @@ int	checkparams(char **params)
 	return (1);
 }
 
-int	ft_atoicheck(const char *str)
+int	ft_atoip(const char *str)
 {
 	int		sign;
 	long	rslt;

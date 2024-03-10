@@ -57,13 +57,6 @@ int	*sorted_stack_array(t_push **head)
 	return (s_arr);
 }
 
-void	ft_pb_rb(t_push **a, t_push **b, int *i)
-{
-	ft_pb(a, b);
-	ft_rb(b);
-	(*i)++;
-}
-
 void	algo_sort(t_push **a, t_push **b, int interval, int size)
 {
 	int	i;
@@ -76,7 +69,7 @@ void	algo_sort(t_push **a, t_push **b, int interval, int size)
 		if (interval + i >= size)
 			interval = size - i - 1;
 		if ((*a)->data <= s_arr[i])
-			ft_pb_rb(a, b, &i);
+			(ft_pb(a, b), ft_rb(b), i++);
 		else if ((*a)->data > s_arr[i] && (*a)->data <= s_arr[i + interval])
 		{
 			ft_pb(a, b);

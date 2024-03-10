@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	min_to_b(t_push **a, t_push **b)
+void	min_head(t_push **a, t_push **b)
 {
 	t_push	*min;
 
@@ -49,7 +49,7 @@ void	sort_five(t_push **a, t_push **b)
 	if (min->data == (*a)->data)
 		ft_pb(a, b);
 	else
-		min_to_b(a, b);
+		min_head(a, b);
 	sort_four(a, b);
 	ft_pa(a, b);
 }
