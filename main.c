@@ -41,16 +41,13 @@ void	initial_args(int ac, char **av, t_push **stack_a)
 	}
 }
 
-int	is_sorted_par(char **av)
+int	is_sorted(t_push *s_a)
 {
-	int	i;
-
-	i = 0;
-	while (av[i] && av[i + 1])
+	while (s_a && s_a->next)
 	{
-		if (ft_atoi(av[i]) > ft_atoi(av[i + 1]))
+		if (s_a->data > s_a->next->data)
 			return (0);
-		i++;
+		s_a = s_a->next;
 	}
 	return (1);
 }
@@ -62,10 +59,12 @@ int	main(int ac, char **av)
 
 	s_a = NULL;
 	s_b = NULL;
-	if (ac < 2 || is_sorted_par(av))
+	if (ac < 2)
 		return (0);
 	initial_args(ac, av, &s_a);
-	if (stack_size(s_a) == 2 && (s_a->data > s_a->next->data))
+	if (is_sorted(s_a))
+		return (0);
+	else if (stack_size(s_a) == 2 && (s_a->data > s_a->next->data))
 		ft_sa(&s_a, 0);
 	else if (stack_size(s_a) == 3)
 		sort_three(&s_a);
@@ -79,7 +78,5 @@ int	main(int ac, char **av)
 		while (s_b)
 			move_max_up(&s_a, &s_b);
 	}
-	ft_pushclear(&s_a);
-	ft_pushclear(&s_b);
-	return (0);
+	return (ft_pushclear(&s_a), ft_pushclear(&s_b), 0);
 }
