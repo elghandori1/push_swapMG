@@ -12,6 +12,35 @@
 
 #include "checker_bonus.h"
 
+void	initial_args(int ac, char **av, t_push **stack_a)
+{
+	char	**rslt;
+
+	int (i), (j), (num);
+	i = 0;
+	while (++i < ac)
+	{
+		if (!*av[i] || spaces_tabs(av[i]))
+			ft_error();
+		else
+		{
+			rslt = ft_split(av[i], ' ');
+			if (checkparams(rslt))
+			{
+				j = -1;
+				while (rslt[++j])
+				{
+					num = ft_atoip(rslt[j]);
+					if (num == INT_MAX || num == INT_MIN)
+						(free_split(rslt), ft_error());
+					ft_createnode(num, stack_a);
+				}
+			}
+			free_split(rslt);
+		}
+	}
+}
+
 int	is_sorted(t_push **a)
 {
 	t_push	*tmp;
@@ -28,41 +57,29 @@ int	is_sorted(t_push **a)
 	return (1);
 }
 
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	if (!s1 || !s2)
-		return (1);
-	while ((*s1 && *s2) && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
-}
-
 void	apply_operations(t_push **a, t_push **b, char *line)
 {
-	if (ft_strcmp(line, "sa\n") == 0)
+	if (ft_strncmp(line, "sa\n", ft_strlen(line)) == 0)
 		ft_sa(a, 1);
-	else if (ft_strcmp(line, "sb\n") == 0)
+	else if (ft_strncmp(line, "sb\n", ft_strlen(line)) == 0)
 		ft_sb(b, 1);
-	else if (ft_strcmp(line, "ss\n") == 0)
+	else if (ft_strncmp(line, "ss\n", ft_strlen(line)) == 0)
 		ft_ss(a, b, 1);
-	else if (ft_strcmp(line, "pa\n") == 0)
+	else if (ft_strncmp(line, "pa\n", ft_strlen(line)) == 0)
 		ft_pa(a, b, 1);
-	else if (ft_strcmp(line, "pb\n") == 0)
+	else if (ft_strncmp(line, "pb\n", ft_strlen(line)) == 0)
 		ft_pb(a, b, 1);
-	else if (ft_strcmp(line, "ra\n") == 0)
+	else if (ft_strncmp(line, "ra\n", ft_strlen(line)) == 0)
 		ft_ra(a, 1);
-	else if (ft_strcmp(line, "rb\n") == 0)
+	else if (ft_strncmp(line, "rb\n", ft_strlen(line)) == 0)
 		ft_rb(b, 1);
-	else if (ft_strcmp(line, "rr\n") == 0)
+	else if (ft_strncmp(line, "rr\n", ft_strlen(line)) == 0)
 		ft_rr(a, b, 1);
-	else if (ft_strcmp(line, "rra\n") == 0)
+	else if (ft_strncmp(line, "rra\n", ft_strlen(line)) == 0)
 		ft_rra(a, 1);
-	else if (ft_strcmp(line, "rrb\n") == 0)
+	else if (ft_strncmp(line, "rrb\n", ft_strlen(line)) == 0)
 		ft_rrb(b, 1);
-	else if (ft_strcmp(line, "rrr\n") == 0)
+	else if (ft_strncmp(line, "rrr\n", ft_strlen(line)) == 0)
 		ft_rrr(a, b, 1);
 	else
 		ft_error();
