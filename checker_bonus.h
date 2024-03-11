@@ -27,6 +27,5 @@ char	*get_next_line(int fd);
 char	*ft_strjoin_next(char *s1, char *s2);
 char	*ft_strchr(const char *s, int c);
 char	*read_all(int fd, char *last);
-void	initial_args(int ac, char **av, t_push **stack_a);
 
 #endif
