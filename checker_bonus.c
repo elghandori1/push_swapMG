@@ -12,7 +12,7 @@
 
 #include "checker_bonus.h"
 
-int	sorted(t_push **a)
+int	is_sorted(t_push **a)
 {
 	t_push	*tmp;
 
@@ -92,7 +92,7 @@ int	main(int ac, char **av)
 		return (0);
 	initial_args(ac, av, &sb_a);
 	start_checking(&sb_a, &sb_b);
-	if (sorted(&sb_a) == 1 && !sb_b)
+	if (is_sorted(&sb_a) == 1 && !sb_b)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
