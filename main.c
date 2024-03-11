@@ -65,6 +65,6 @@ int	main(int ac, char **av)
 		while (s_b)
 			move_max_up(&s_a, &s_b);
 	}
-	(ft_pushclear(&s_a), ft_pushclear(&s_b));
+	ft_pushclear(&s_a);
 	return (0);
 }
